@@ -1,0 +1,22 @@
+.image-size{
+    width: 100%;
+    
+}
+.item-list{
+    border-bottom: 2px dotted black !important;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    justify-content: space-between;
+    padding: 20px 0;
+    div{
+        &:nth-child(1){
+            width: 37%;
+            font-weight: 700;
+        }
+        &:nth-child(2){
+            width: 68%;
+            overflow-wrap: anywhere;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.AppDisplay_container{
+    margin: 20px 30px;
+    width: 60vw;
+    border-radius: 10px ;
+    border:  1px dotted black;
+    .wrapper{
+        padding: 20px 0;
+        .AppDisplay_title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 40px;
+        }
+        .AppDisplay_text{
+            margin-bottom: 50px;
+        }
+    }
+}
