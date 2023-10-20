@@ -1,5 +1,4 @@
-import { Col, Row } from 'antd';
-import { Card } from 'antd';
+import { Col, Row, Card } from 'antd';
 import "./Content.scss"
 const { Meta } = Card;
 
