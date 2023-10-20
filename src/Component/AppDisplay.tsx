@@ -6,11 +6,13 @@ import { Button } from 'antd';
 import Content from "./Content"
 import axios from "axios";
 import { useState } from "react"
-
+import Stargazers from "./Stargazers"
 const AppDisplay = () => {
     const [owner, setOwner] = useState("")
     const [repo, setRepo] = useState("")
     const [data, setData] = useState("")
+
+    const [dataDetail, setDataDetail] = useState<object>([])
 
     const handleShowDataGit = async () => {
 
@@ -24,6 +26,7 @@ const AppDisplay = () => {
                 })
             if (data.status == import.meta.env.VITE_SUCCESS_CODE) {
                 setData(data?.data)
+                await handleGetAllStarUser(owner, repo)
             } else {
                 setData("")
             }
@@ -34,6 +37,30 @@ const AppDisplay = () => {
             }
         }
     }
+
+    const handleGetAllStarUser = async (owner: string, repo: string) => {
+        try {
+            let data = await axios.get(`https://api.github.com/repos/${owner}/${repo}/stargazers`,
+                {
+                    headers: {
+                        Authorization: 'Bearer ' + import.meta.env.VITE_TOKEN,
+                        "Content-Type": "application/json"
+                    }
+                })
+            if (data.status == import.meta.env.VITE_SUCCESS_CODE) {
+                setDataDetail(data?.data)
+
+            }
+
+        } catch (error: any) {
+            if (error?.response?.status == import.meta.env.VITE_NOTFOUND_CODE) {
+                alert("Not found")
+            }
+        }
+    }
+
+
+
     return (
         <div className="AppDisplay_container">
             <div className="wrapper">
@@ -75,7 +102,11 @@ const AppDisplay = () => {
                         />
                     </div>
                 }
-
+                <div>
+                    <Stargazers
+                        dataDetail={dataDetail}
+                    />
+                </div>
             </div>
         </div>
     )
