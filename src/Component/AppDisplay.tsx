@@ -40,6 +40,7 @@ const AppDisplay = () => {
 
     const handleGetAllStarUser = async (owner: string, repo: string) => {
         try {
+
             let data = await axios.get(`https://api.github.com/repos/${owner}/${repo}/stargazers?page=${page}&per_page=${12}`,
                 {
                     headers: {
@@ -49,6 +50,8 @@ const AppDisplay = () => {
                 })
             if (data.status == import.meta.env.VITE_SUCCESS_CODE) {
                 setDataDetail(data?.data)
+
+
                 if (page > 1 && data?.data?.length == 0) {
                     setPage(page - 1)
                     await axios.get(`https://api.github.com/repos/${owner}/${repo}/stargazers?page=${page}&per_page=${10}`,
@@ -67,10 +70,10 @@ const AppDisplay = () => {
         }
     }
     useEffect(() => {
-        if (page > 1) {
+        if (owner && repo) {
             handleGetAllStarUser(owner, repo)
         }
-    }, [page])
+    }, [page, owner, repo])
     return (
         <div className="AppDisplay_container">
             <div className="wrapper">
@@ -124,12 +127,7 @@ const AppDisplay = () => {
                         <Button type="primary" onClick={() => setPage(page - 1)}>Back</Button>
 
                     }
-
-
                     <Button type="primary" onClick={() => setPage(page + 1)}>Load more</Button>
-
-
-
                 </div>
             }
 
