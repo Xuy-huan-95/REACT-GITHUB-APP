@@ -67,8 +67,9 @@ const AppDisplay = () => {
         }
     }
     useEffect(() => {
-
-        handleGetAllStarUser(owner, repo)
+        if (page > 1) {
+            handleGetAllStarUser(owner, repo)
+        }
     }, [page])
     return (
         <div className="AppDisplay_container">
