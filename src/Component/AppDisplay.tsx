@@ -38,7 +38,7 @@ const AppDisplay = () => {
         }
     }
 
-    const handleGetAllStarUser = async (owner: string, repo: string) => {
+    const handleGetAllStarUser = async () => {
         try {
 
             let data = await axios.get(`https://api.github.com/repos/${owner}/${repo}/stargazers?page=${page}&per_page=${12}`,
@@ -71,9 +71,9 @@ const AppDisplay = () => {
     }
     useEffect(() => {
         if (owner && repo) {
-            handleGetAllStarUser(owner, repo)
+            handleGetAllStarUser()
         }
-    }, [page, owner, repo])
+    }, [page])
     return (
         <div className="AppDisplay_container">
             <div className="wrapper">
