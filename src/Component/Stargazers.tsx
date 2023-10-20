@@ -1,6 +1,6 @@
 import "./Stargazers.scss"
 import { Col, Row } from 'antd';
-import { Avatar, Button } from 'antd';
+import { Avatar } from 'antd';
 
 
 const Stargazers = (props: any) => {
