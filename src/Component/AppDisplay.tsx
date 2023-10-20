@@ -26,7 +26,7 @@ const AppDisplay = () => {
                 })
             if (data.status == import.meta.env.VITE_SUCCESS_CODE) {
                 setData(data?.data)
-                await handleGetAllStarUser(owner, repo)
+                await handleGetAllStarUser()
             } else {
                 setData("")
             }
