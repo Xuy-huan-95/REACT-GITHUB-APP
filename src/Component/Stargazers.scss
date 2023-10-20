@@ -1,0 +1,49 @@
+.Stargazers_container{
+    .Stargazers_title{
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+    .Stargazers_item{
+        height: 65px;
+        border-bottom: 1px solid black;
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+        width: 95%;
+
+            .Stargazers_item_content{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 0 0 20px 0;
+
+                .Stargazers_image{
+                    width: 60px;
+                    height: 60px;
+                    line-height: 38px;
+                    border-radius: 50%;
+                }
+                .item_info{
+                    .item_info_name{
+                        font-size: 18px;
+                        color: #388bfd;
+                        font-weight: 500;
+                    }
+                    div{
+                        &:nth-child(2){
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                    }
+                   
+                }
+            }
+           
+        
+       
+    }
+}
