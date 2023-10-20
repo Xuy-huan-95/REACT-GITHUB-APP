@@ -1,9 +1,7 @@
 import "./Stargazers.scss"
 import { Col, Row } from 'antd';
 import { Avatar } from 'antd';
-import { ClockCircleOutlined } from "@ant-design/icons"
-import moment from "moment";
-import axios from "axios"
+
 
 const Stargazers = (props: any) => {
     const { dataDetail } = props
@@ -25,8 +23,9 @@ const Stargazers = (props: any) => {
                                                 className="Stargazers_image"
                                                 src={item.avatar_url} />
                                             <div className="item_info">
-                                                <div className="item_info_name" >{item.login}</div>
-
+                                                <div className="item_info_name" >
+                                                    <a href={item.html_url} target="_blank">{item.login}</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
